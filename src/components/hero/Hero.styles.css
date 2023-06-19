@@ -15,22 +15,25 @@
     margin-bottom: 2rem;
     place-content: end left;
     position: relative;
-    padding-bottom: 4rem;
+    padding-bottom: 6rem;
 }
 
 .hero-image {
     position: absolute;
     width: 100%;
     max-width: 700px;
-    bottom: 0;
+    bottom: 6rem;
     right: 0;
+    z-index: 7;
 }
 
 .hero-text {
-    max-width: 530px;
+    max-width: 630px;
     color: var(--primary);
     display: flex;
     flex-direction: column;
+    z-index: 9;
+    position: relative;
 }
 
 .hero h4 {
@@ -39,17 +42,65 @@
     letter-spacing: 10px;
 }
 
+.hero h1 > span {
+    color: #383838;
+    font-size: clamp(54px, 8vw, 100px);
+}
+
 .hero h1 {
-    font-size: clamp(30px, 6vw, 50px);
+    font-size: clamp(40px, 6vw, 60px);
     margin: 0;
+    line-height: 4.5rem;
 }
 
 .hero-description {
     color: var(--secondary);
+    font-weight: 600;
+    line-height: 25px;
+    font-size: clamp(16px, 4vw, 20px);
 }
 
-/* @media screen and (max-width: 1000px) {
+@media screen and (min-width: 1400px) {
     .big-text {
-        display: none;
+        top: -5rem;
     }
-} */
+
+    .hero-image {
+        bottom: 8rem;
+    }
+
+    .hero {
+        padding-bottom: 7rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .hero-image {
+        top: 0;
+    }
+
+    .hero {
+        padding-bottom: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        line-height: 3rem;
+    }
+
+    .hero h4 {
+        line-height: 3rem;
+    }
+
+    .hero * {
+        margin: 0;
+    }
+
+    .hero-description {
+        line-height: 22px;
+    }
+
+    .header {
+        padding-block: 16px;
+    }
+}

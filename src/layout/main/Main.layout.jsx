@@ -3,7 +3,7 @@ import Projects from "../../components/projects/Projects.component";
 
 const Main = () => {
     return (
-        <div className="main container">
+        <div className="main container-full">
             <Hero />
             <Projects />
         </div>
