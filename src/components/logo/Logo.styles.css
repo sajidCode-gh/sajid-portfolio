@@ -1,0 +1,41 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 99999;
+    transition: all 2s;
+    cursor: pointer;
+}
+
+.logo .name {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: clamp(20px, 6vw, 30px);
+}
+
+.logo .profession {
+    font-size: clamp(7px, 2vw, 10px);
+    letter-spacing: 5px;
+}
+
+.logo .circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    font-size: 1.7rem;
+    font-size: clamp(25px, 4vw, 30px);
+    font-weight: bolder;
+}
+
+.logo.open {
+    color: var(--secondary);
+}
+
+.logo.open .circle {
+    border: 2px solid var(--secondary);
+}
