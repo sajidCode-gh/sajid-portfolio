@@ -16,6 +16,7 @@
     place-content: end left;
     position: relative;
     padding-bottom: 6rem;
+    position: relative;
 }
 
 .hero-image {
@@ -34,6 +35,24 @@
     flex-direction: column;
     z-index: 9;
     position: relative;
+}
+
+.hero-text a {
+    color: var(--primary);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-weight: 500;
+    border: 1px solid var(--secondary);
+    width: max-content;
+    padding: 7px;
+    border-radius: 5px;
+    transition: all 250ms;
+    position: relative;
+}
+
+.hero-text a:hover {
+    background-color: var(--primary);
+    color: white;
 }
 
 .hero h4 {
