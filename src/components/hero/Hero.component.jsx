@@ -8,7 +8,7 @@ const Hero = () => {
 
     const [moveBigText, setMovement] = useState();
     const [bigText, setBigText] = useState("Innovate");
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(1);
     const [scroll, setScroll] = useState(0);
 
     const animateBorder = useSpring({
@@ -54,8 +54,6 @@ const Hero = () => {
         opacity: scroll > 150 ? 0.5 : 1,
     });
 
-    console.log(scroll);
-
     const bigTextMove = useSpring({
         left: moveBigText,
         config: {
@@ -63,8 +61,31 @@ const Hero = () => {
         },
     });
 
+    const moveArrowScroll = useSpring({
+        from: { top: "5px", height: "7px" },
+        to: async (next) => {
+            while (true) {
+                await next({
+                    top: "20px",
+                    height: "5px",
+                });
+                await next({
+                    top: "5px",
+                    height: "7px",
+                });
+            }
+        },
+        config: {
+            duration: 700,
+        },
+    });
+
     const handleResize = () => {
         setScreenHeight(window.innerHeight);
+    };
+
+    const handleArrowDown = () => {
+        window.scroll(0, screenHight);
     };
 
     const handleScroll = () => {
@@ -89,8 +110,6 @@ const Hero = () => {
             setMovement(event.clientX);
         };
 
-        const interval = setInterval(changeBigWord, 2000);
-
         window.addEventListener("mousemove", handleMoveBigText);
 
         window.addEventListener("resize", handleResize);
@@ -100,6 +119,12 @@ const Hero = () => {
             window.removeEventListener("resize", handleScroll);
             window.removeEventListener("mousemove", handleMoveBigText);
             window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(changeBigWord, 2000);
+        return () => {
             clearInterval(interval);
         };
     }, [bigText]);
@@ -128,8 +153,12 @@ const Hero = () => {
                         success.
                     </animated.p>
 
-                    <animated.a href="#contacts" style={animateBorder}>
-                        Hit Me Up
+                    <animated.a
+                        href="#contacts"
+                        className="contact-btn"
+                        style={animateBorder}
+                    >
+                        Contact
                     </animated.a>
                 </div>
                 <animated.div
@@ -138,6 +167,13 @@ const Hero = () => {
                 >
                     <img src={mainImage} alt="main image" />
                 </animated.div>
+            </div>
+
+            <div onClick={handleArrowDown} className="scroll-down-arrow">
+                <animated.div
+                    style={moveArrowScroll}
+                    className="inner"
+                ></animated.div>
             </div>
         </div>
     );

@@ -56,9 +56,9 @@
 }
 
 .hero h4 {
-    font-weight: lighter;
-    font-size: 1.2rem;
-    letter-spacing: 10px;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 8px;
 }
 
 .hero h1 > span {
@@ -79,6 +79,33 @@
     font-size: clamp(16px, 4vw, 20px);
 }
 
+.scroll-down-arrow {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border: 1px solid var(--primary);
+    border-radius: 30px;
+    bottom: 2rem;
+    left: 50%;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.scroll-down-arrow:hover {
+    border-color: var(--secondary);
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--primary);
+}
+
 @media screen and (min-width: 1400px) {
     .big-text {
         top: -5rem;
@@ -96,6 +123,15 @@
 @media screen and (max-width: 1000px) {
     .hero-image {
         top: 0;
+    }
+
+    .scroll-down-arrow {
+        bottom: 5px;
+    }
+
+    .contact-btn {
+        display: inline-block;
+        margin-top: 1rem !important;
     }
 
     .hero {
