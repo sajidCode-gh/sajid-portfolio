@@ -7,6 +7,9 @@ const Hero = () => {
     const [screenHight, setScreenHeight] = useState(window.innerHeight);
 
     const [moveBigText, setMovement] = useState();
+    const [bigText, setBigText] = useState("Innovate");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [scroll, setScroll] = useState(0);
 
     const animateBorder = useSpring({
         from: { boxShadow: "0 0 1px 2px rgba(15, 20, 30, 0.3)" },
@@ -47,30 +50,65 @@ const Hero = () => {
         delay: 500,
     });
 
-    const handleScroll = () => {
+    const fadeOutImage = useSpring({
+        opacity: scroll > 150 ? 0.5 : 1,
+    });
+
+    console.log(scroll);
+
+    const bigTextMove = useSpring({
+        left: moveBigText,
+        config: {
+            duration: 1000,
+        },
+    });
+
+    const handleResize = () => {
         setScreenHeight(window.innerHeight);
+    };
+
+    const handleScroll = () => {
+        const currentPosition =
+            window.pageYOffset || document.documentElement.scrollTop;
+        setScroll(currentPosition);
+    };
+
+    let wordsArray = ["Innovate", "Inspire", "Empower", "Revolutionize"];
+
+    const changeBigWord = () => {
+        setBigText(wordsArray[currentIndex]);
+        setCurrentIndex(currentIndex + 1);
+
+        if (currentIndex == wordsArray.length - 1) {
+            setCurrentIndex(0);
+        }
     };
 
     useEffect(() => {
         const handleMoveBigText = (event) => {
-            setMovement(event.clientX / 18);
+            setMovement(event.clientX);
         };
+
+        const interval = setInterval(changeBigWord, 2000);
 
         window.addEventListener("mousemove", handleMoveBigText);
 
-        window.addEventListener("resize", handleScroll);
+        window.addEventListener("resize", handleResize);
+        window.addEventListener("scroll", handleScroll);
 
         return () => {
             window.removeEventListener("resize", handleScroll);
             window.removeEventListener("mousemove", handleMoveBigText);
+            window.removeEventListener("scroll", handleScroll);
+            clearInterval(interval);
         };
-    }, []);
+    }, [bigText]);
 
     return (
         <div className="hero" style={{ height: screenHight - 104 + "px" }}>
-            <div className="big-text" style={{ left: moveBigText + "rem" }}>
-                Innovate
-            </div>
+            <animated.div className="big-text" style={bigTextMove}>
+                {bigText}
+            </animated.div>
 
             <div className="hero-section">
                 <div className="hero-text">
@@ -94,7 +132,10 @@ const Hero = () => {
                         Hit Me Up
                     </animated.a>
                 </div>
-                <animated.div style={textAnimateOne} className="hero-image">
+                <animated.div
+                    style={{ ...textAnimateOne, ...fadeOutImage }}
+                    className="hero-image"
+                >
                     <img src={mainImage} alt="main image" />
                 </animated.div>
             </div>

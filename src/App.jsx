@@ -3,10 +3,11 @@ import "./App.css";
 import Header from "./layout/header/Header.layout";
 import Main from "./layout/main/main.layout";
 import { useEffect, useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
+import { useSpring, animated, easings } from "@react-spring/web";
 
 function App() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [isAnimationComplete, setAnimationComplete] = useState(false);
 
     const handleMouseMove = (event) => {
         const { clientX: x, clientY: y } = event;
@@ -21,10 +22,26 @@ function App() {
         };
     });
 
-    // const moveMouse = useSpring({
-    //     top: mousePosition.y - 50,
-    //     left: mousePosition.x - 50,
-    // });
+    const moveMouse = useSpring({
+        top: mousePosition.y - 50,
+        left: mousePosition.x - 50,
+        config: {
+            duration: 500,
+            easing: easings.easeInOutBack,
+        },
+        onStart: () => {
+            setAnimationComplete(true);
+            console.log("started");
+        },
+        onRest: () => {
+            setAnimationComplete(false);
+            console.log("rested");
+        },
+    });
+
+    const scale = useSpring({
+        transform: isAnimationComplete ? "scale(1)" : "scale(1.3)",
+    });
 
     return (
         <div className="app">
@@ -32,7 +49,7 @@ function App() {
             <Main />
 
             <animated.div
-                style={{ top: mousePosition.y, left: mousePosition.x }}
+                style={{ ...moveMouse, ...scale }}
                 className="follow-pointer"
             ></animated.div>
         </div>

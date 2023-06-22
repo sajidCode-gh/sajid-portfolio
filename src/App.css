@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --primary: #0f141e;
     --secondary: #878a8f;
@@ -79,11 +83,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .follow-pointer {
-    position: absolute;
+    position: fixed;
     z-index: 999999;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: rgb(136, 136, 136);
+    background-color: rgba(100, 100, 100, 0.849);
     mix-blend-mode: multiply;
+    pointer-events: none;
 }
