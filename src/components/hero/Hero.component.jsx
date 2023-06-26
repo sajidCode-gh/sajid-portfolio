@@ -123,7 +123,7 @@ const Hero = () => {
     }, []);
 
     useEffect(() => {
-        const interval = setInterval(changeBigWord, 2000);
+        const interval = setInterval(changeBigWord, 5000);
         return () => {
             clearInterval(interval);
         };

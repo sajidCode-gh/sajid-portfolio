@@ -1,12 +1,12 @@
 import Hero from "../../components/hero/Hero.component";
-import Projects from "../../components/projects/Projects.component";
+import Project from "../../components/project/project.component";
 
 const Main = () => {
     return (
-        <div className="main container-full">
+        <main className="main container-full">
             <Hero />
-            <Projects />
-        </div>
+            <Project />
+        </main>
     );
 };
 

@@ -108,7 +108,8 @@
 
 @media screen and (min-width: 1400px) {
     .big-text {
-        top: -5rem;
+        top: 1rem;
+        font-size: 15vw;
     }
 
     .hero-image {

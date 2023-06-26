@@ -6,6 +6,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
 }
 
 :root {
@@ -45,13 +46,38 @@ li {
     list-style: none;
 }
 
+h2 {
+    font-size: 3rem;
+    margin: 5px;
+}
+
+h3 {
+    font-size: 2rem;
+    margin-block: 5px;
+}
+
+p {
+    color: var(--secondary);
+    font-weight: 600;
+    line-height: 25px;
+    font-size: clamp(16px, 4vw, 20px);
+}
+
+.text-middle {
+    max-width: 670px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
 .container-full {
     width: 100%;
     max-width: 1400px;
     padding-inline: 1rem;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
 }
 
 .container {
@@ -74,8 +100,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media screen and (max-width: 769px) {
-    .container {
-        padding-inline: 10px;
+    .container-full {
+        overflow: hidden;
     }
 
     .follow-pointer {
