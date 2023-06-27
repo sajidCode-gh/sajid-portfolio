@@ -9,7 +9,7 @@ import Footer from "./layout/footer/Footer.layout";
 function App() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isAnimationComplete, setAnimationComplete] = useState(false);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const handleMouseMove = (event) => {
         const { clientX: x, clientY: y } = event;
@@ -17,7 +17,7 @@ function App() {
     };
 
     const handleLoading = () => {
-        setLoading(true);
+        setLoading(false);
     };
 
     useEffect(() => {
@@ -27,8 +27,9 @@ function App() {
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("load", handleLoading);
         };
-    });
+    }, []);
 
     const moveMouse = useSpring({
         top: mousePosition.y - 50,
@@ -50,7 +51,7 @@ function App() {
     });
 
     const loadingAnimation = useSpring({
-        transform: loading ? "translateY(-100%)" : "translateY(0%)",
+        transform: loading ? "translateY(0%)" : "translateY(-100%)",
     });
 
     return (
