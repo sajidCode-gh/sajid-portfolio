@@ -101,6 +101,20 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid #9a9a9a;
 }
 
+.loading {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary);
+    z-index: 9999;
+    display: grid;
+    place-content: center;
+    color: var(--secondary);
+    font-size: 5rem;
+}
+
 @media screen and (max-width: 769px) {
     .container-full {
         overflow: hidden;

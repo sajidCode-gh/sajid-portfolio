@@ -9,14 +9,21 @@ import Footer from "./layout/footer/Footer.layout";
 function App() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [isAnimationComplete, setAnimationComplete] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleMouseMove = (event) => {
         const { clientX: x, clientY: y } = event;
         setMousePosition({ x, y });
     };
 
+    const handleLoading = () => {
+        setLoading(true);
+    };
+
     useEffect(() => {
         window.addEventListener("mousemove", handleMouseMove);
+
+        window.addEventListener("load", handleLoading);
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
@@ -42,6 +49,10 @@ function App() {
         transform: isAnimationComplete ? "scale(1)" : "scale(1.3)",
     });
 
+    const loadingAnimation = useSpring({
+        transform: loading ? "translateY(-100%)" : "translateY(0%)",
+    });
+
     return (
         <div className="app">
             <Header />
@@ -52,6 +63,9 @@ function App() {
                 style={{ ...moveMouse, ...scale }}
                 className="follow-pointer"
             ></animated.div>
+            <animated.div style={loadingAnimation} className="loading">
+                Loading...
+            </animated.div>
         </div>
     );
 }
