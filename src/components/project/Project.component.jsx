@@ -57,7 +57,7 @@ const Project = () => {
         <section className="projects" id="projects">
             <div className="project-description text-middle">
                 <Fade cascade triggerOnce>
-                    <h2 className="project-heading">Project</h2>
+                    <h2 className="project-heading">Projects</h2>
                     <p>
                         Here are some of my projects, domonstrating my front end
                         skills, and it's just the taste, I belive on my abililty

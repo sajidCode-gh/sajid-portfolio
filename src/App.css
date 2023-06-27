@@ -49,11 +49,13 @@ li {
 h2 {
     font-size: 3rem;
     margin: 5px;
+    color: var(--primary);
 }
 
 h3 {
     font-size: 2rem;
     margin-block: 5px;
+    color: var(--primary);
 }
 
 p {

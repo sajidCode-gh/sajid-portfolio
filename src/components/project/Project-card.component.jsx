@@ -43,6 +43,7 @@ const ProjectCard = ({ data }) => {
     });
 
     const slideAnimation5 = useSpring({
+        pointerEvents: isMouseEntered ? "all" : "none",
         opacity: isMouseEntered ? 1 : 0,
         config: { duration: 100 },
         delay: 300,

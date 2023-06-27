@@ -1,0 +1,71 @@
+.experience-section {
+    border-left: 2px solid var(--secondary);
+    padding-left: 2rem;
+    position: relative;
+}
+
+.experience-section::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: var(--primary);
+    left: -0.7rem;
+    top: 1rem;
+}
+
+.experience-section h3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 5px;
+}
+.experience-section.upwork::before {
+    top: 4rem;
+}
+.experience-section.upwork {
+    padding-top: 3rem;
+}
+
+.experience-section h3 small {
+    font-size: 1rem;
+    line-height: 5px;
+    align-self: center;
+}
+
+.experience-section h3 img {
+    width: 40px;
+}
+
+.experience-section h3 a {
+    color: var(--primary);
+}
+
+.experience-section p {
+    background-color: #aeb0b3;
+    color: var(--primary);
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 400;
+}
+
+.experience-section .skills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.experience-section .skills span {
+    background-color: var(--primary);
+    padding: 5px 7px;
+    border-radius: 5px;
+    color: var(--secondary);
+}
+
+@media screen and (max-width: 769px) {
+    .experience-section h3 small {
+        display: none;
+    }
+}
