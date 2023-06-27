@@ -49,7 +49,7 @@ const proejctData = [
         image: portfolio,
         technologies: ["React", "React Spring", "CSS", "Vite"],
         github: "https://github.com/sajidCode-gh/sajid-portfolio",
-        link: "#",
+        link: "https://sajidcode-gh.github.io/sajid-portfolio/",
     },
 ];
 
