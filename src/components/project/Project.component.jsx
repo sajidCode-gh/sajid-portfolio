@@ -1,10 +1,11 @@
 import SCApps from "./../../assets/sc-apps.png";
 import estore from "./../../assets/e-store.png";
 import gotomars from "./../../assets/gotomars.png";
+import portfolio from "./../../assets/portofio.png";
 import ProjectCard from "./Project-card.component";
 
 import "./Project.style.css";
-import { Fade, Slide, Zoom } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 
 const proejctData = [
     {
@@ -45,7 +46,7 @@ const proejctData = [
         title: "Portfolio",
         description:
             "My personal portfolio, includes some slick animations and hover effects",
-        image: SCApps,
+        image: portfolio,
         technologies: ["React", "React Spring", "CSS", "Vite"],
         github: "https://github.com/sajidCode-gh/sajid-portfolio",
         link: "#",
