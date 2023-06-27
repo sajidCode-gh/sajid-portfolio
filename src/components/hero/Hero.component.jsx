@@ -130,7 +130,11 @@ const Hero = () => {
     }, [bigText]);
 
     return (
-        <div className="hero" style={{ height: screenHight - 104 + "px" }}>
+        <div
+            className="hero"
+            id="about"
+            style={{ height: screenHight - 104 + "px" }}
+        >
             <animated.div className="big-text" style={bigTextMove}>
                 {bigText}
             </animated.div>

@@ -4,6 +4,7 @@ import Header from "./layout/header/Header.layout";
 import Main from "./layout/main/main.layout";
 import { useEffect, useState } from "react";
 import { useSpring, animated, easings } from "@react-spring/web";
+import Footer from "./layout/footer/Footer.layout";
 
 function App() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -31,11 +32,9 @@ function App() {
         },
         onStart: () => {
             setAnimationComplete(true);
-            console.log("started");
         },
         onRest: () => {
             setAnimationComplete(false);
-            console.log("rested");
         },
     });
 
@@ -47,6 +46,7 @@ function App() {
         <div className="app">
             <Header />
             <Main />
+            <Footer />
 
             <animated.div
                 style={{ ...moveMouse, ...scale }}
