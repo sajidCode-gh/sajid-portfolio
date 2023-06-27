@@ -11,6 +11,8 @@ function App() {
     const [isAnimationComplete, setAnimationComplete] = useState(false);
     const [loading, setLoading] = useState(true);
 
+    let loadingAnimationkey = Date.now().toString();
+
     const handleMouseMove = (event) => {
         const { clientX: x, clientY: y } = event;
         setMousePosition({ x, y });
@@ -64,7 +66,11 @@ function App() {
                 style={{ ...moveMouse, ...scale }}
                 className="follow-pointer"
             ></animated.div>
-            <animated.div style={loadingAnimation} className="loading">
+            <animated.div
+                key={loadingAnimationkey}
+                style={loadingAnimation}
+                className="loading"
+            >
                 Loading...
             </animated.div>
         </div>
