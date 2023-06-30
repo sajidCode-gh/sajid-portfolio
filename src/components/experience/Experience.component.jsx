@@ -28,7 +28,7 @@ const Experience = () => {
                             </a>
                             <small>May 17th 2022 - Present</small>
                         </h3>
-                        <h4>Technical Engineer</h4>
+                        <h4>Technical Support Engineer</h4>
                         <p>
                             In my role as a tech engineer, I foster close
                             collaboration with customers to address critical
