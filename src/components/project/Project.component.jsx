@@ -20,7 +20,7 @@ const proejctData = [
     {
         title: "E Store",
         description:
-            "A clothing store, with login, sign up authentication. showcasing teh ability to host and extend user data in document based database and fetch the data for front end.",
+            "A clothing store, with login, sign up authentication. showcasing the ability to host and extend user data in document based database and fetch the data for front end.",
         image: estore,
         technologies: [
             "React",

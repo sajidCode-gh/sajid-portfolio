@@ -8,6 +8,8 @@
 
 .project-card {
     position: relative;
+    overflow: hidden;
+    border-radius: 15px;
 }
 
 .project-info {

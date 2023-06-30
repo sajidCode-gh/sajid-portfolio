@@ -158,7 +158,7 @@ const Hero = () => {
                     </animated.p>
 
                     <animated.a
-                        href="#contacts"
+                        href="#contact"
                         className="contact-btn"
                         style={animateBorder}
                     >

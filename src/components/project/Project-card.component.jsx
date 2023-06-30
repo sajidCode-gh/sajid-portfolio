@@ -49,6 +49,13 @@ const ProjectCard = ({ data }) => {
         delay: 300,
     });
 
+    const zoomImage = useSpring({
+        transform: isMouseEntered ? "scale(1.1)" : "scale(1)",
+        config: {
+            duration: 1000,
+        },
+    });
+
     return (
         <Fade triggerOnce>
             <div
@@ -56,9 +63,9 @@ const ProjectCard = ({ data }) => {
                 onMouseLeave={handleMouseLeave}
                 onMouseEnter={handleMouseEnter}
             >
-                <div className="project-image">
+                <animated.div style={zoomImage} className="project-image">
                     <img src={image} alt="image" />
-                </div>
+                </animated.div>
                 <div className="project-info">
                     <animated.h3 style={slideAnimation2}>{title}</animated.h3>
                     <animated.p style={slideAnimation3}>

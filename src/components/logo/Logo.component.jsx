@@ -14,18 +14,20 @@ const Logo = ({ toggle }) => {
     }));
 
     return (
-        <div className={toggle ? "logo" : "logo open"}>
-            <div className="circle">S</div>
-            <div className="name">
-                <span>Muhammad Sajid</span>
-                <animated.span
-                    className="profession"
-                    style={{ ...animateLogo }}
-                >
-                    WEB DEVELOPER
-                </animated.span>
+        <a href="#about" className="logo">
+            <div className={toggle ? "logo" : "logo open"}>
+                <div className="circle">S</div>
+                <div className="name">
+                    <span>Muhammad Sajid</span>
+                    <animated.span
+                        className="profession"
+                        style={{ ...animateLogo }}
+                    >
+                        WEB DEVELOPER
+                    </animated.span>
+                </div>
             </div>
-        </div>
+        </a>
     );
 };
 
