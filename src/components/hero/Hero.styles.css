@@ -123,7 +123,7 @@
 
 @media screen and (max-width: 1000px) {
     .hero-image {
-        top: 0;
+        top: -1rem;
     }
 
     .scroll-down-arrow {
